@@ -40,10 +40,19 @@ namespace CShap_MVC_VuDoan.Controllers
             {
                 BlogsDAO dao = new BlogsDAO();
                 string result = dao.InsertData(blog);
-                TempData["result1"] = result;
-                ModelState.Clear();   
+                if (result != null)
+                {
+                    string a = "sdfsdf";
+                    return RedirectToAction("List");
+                }
+                else
+                {
+                    TempData["result1"] = result;
+                    string test = result;
+                    ModelState.Clear();
 
-                return RedirectToAction("List");
+                    return RedirectToAction("List");
+                }                    
             }
             else
             {

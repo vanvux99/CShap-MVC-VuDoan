@@ -48,7 +48,7 @@ namespace CShap_MVC_VuDoan.DAO
 
         public string InsertData(Blogs blog)
         {
-            SqlConnection con = null;
+            /*SqlConnection con = null;
             string result = "";
             try
             {
@@ -79,7 +79,28 @@ namespace CShap_MVC_VuDoan.DAO
             finally
             {
                 con.Close();
+            }*/
+
+            SqlConnection con = new SqlConnection(@"Data Source =.;Initial Catalog = BLOG;Integrated Security = True");
+
+            string t = "proc_CRUD_Blogs @ID = NULL, @TITLE = 1, @Description_Short = 1, @Detail = 1, @IMAGE = 1, @CATEGORY = 1, @LOCATION = 1, @PUBLICS = 1, @Date_Public = NULL, @TITLE_INPUT = NULL, @Query = 2 ";
+
+            SqlDataAdapter sda = new SqlDataAdapter(t, con);
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                sda.Fill(dt);
             }
+            catch (Exception q)
+            {
+                string er = q.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt.Rows[0][0].ToString();
         }
 
         public string UpdateData(Blogs blog)
@@ -210,7 +231,6 @@ namespace CShap_MVC_VuDoan.DAO
         public List<Blogs> ListData()
         {
             SqlConnection con = null;
-            DataSet ds = null;
             List<Blogs> custlist = null;
 
             try
@@ -220,7 +240,7 @@ namespace CShap_MVC_VuDoan.DAO
                 SqlCommand cmd = new SqlCommand("proc_CRUD_Blogs", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@ID", null);
+                //cmd.Parameters.AddWithValue("@ID", null);
                 cmd.Parameters.AddWithValue("@TITLE", null);
                 cmd.Parameters.AddWithValue("@DESCRIPTION_SHORT", null);
                 cmd.Parameters.AddWithValue("@DETAIL", null);
@@ -257,7 +277,7 @@ namespace CShap_MVC_VuDoan.DAO
                 sda.Fill(dt);*/
 
 
-                ds = new DataSet();
+                DataSet ds = new DataSet();
                 da.Fill(ds);
                 custlist = new List<Blogs>();
 
