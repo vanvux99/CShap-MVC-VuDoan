@@ -33,7 +33,8 @@ namespace CShap_MVC_VuDoan.Controllers
         [HttpGet]
         public ActionResult New()
         {
-            return View();
+            Blogs blogs = new Blogs();
+            return View(blogs);
         }
 
         [HttpPost]
@@ -44,8 +45,7 @@ namespace CShap_MVC_VuDoan.Controllers
                 BlogsDAO dao = new BlogsDAO();
                 string result = dao.InsertData(blog);
 
-                TempData["result1"] = result;
-                string test = result;
+                TempData["insertResult"] = result;
                 ModelState.Clear();
 
                 return RedirectToAction("List");
@@ -60,39 +60,15 @@ namespace CShap_MVC_VuDoan.Controllers
         [HttpGet]
         public ActionResult Search()
         {
-            BlogsDAO blogsDAO = new BlogsDAO();
-            Blogs blogsModel = new Blogs();
-
-            blogsModel.ShowAllBlogs = blogsDAO.ListData();
-            return View(blogsModel);
+            blogs.ShowAllBlogs = dao.ListData();
+            return View(blogs);
         }
 
-        [HttpPost]
-        public ActionResult Search(string searchBlog)
+        [HttpGet]
+        public ActionResult SearchByTitle(string title)
         {
-            if (ModelState.IsValid)
-            {
-                List<Blogs> blogs = null;
-                BlogsDAO dao = new BlogsDAO();/*
-                blogs = dao.SearchData(searchBlog);
-                //TempData["result2"] = result;
-                
-
-                return RedirectToAction("Search");*/
-
-                if (!String.IsNullOrEmpty(searchBlog))
-                {
-                    blogs = dao.SearchData(searchBlog);
-                    ModelState.Clear();
-                }
-
-                return RedirectToAction("Search");
-            }
-            else
-            {
-                ModelState.AddModelError("", "Error in saving data");
-                return RedirectToAction("Search");
-            }
+            blogs.ShowAllBlogs = dao.SearchData(title);
+            return View(blogs);
         }
 
         [HttpGet]
@@ -104,11 +80,11 @@ namespace CShap_MVC_VuDoan.Controllers
         [HttpPost]
         public ActionResult Edit(Blogs blog)
         {
-            if (ModelState.IsValid) //checking model is valid or not    
+            if (ModelState.IsValid)  
             {
                 string result = dao.UpdateData(blog);
-                TempData["result2"] = result;
-                ModelState.Clear(); //clearing model    
+                TempData["updateResult"] = result;
+                ModelState.Clear(); 
 
                 return RedirectToAction("List");
             }

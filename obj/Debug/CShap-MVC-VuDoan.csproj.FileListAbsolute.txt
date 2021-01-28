@@ -76,3 +76,4 @@ D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\obj\Debug\CShap-MVC-VuDoan.csproj.CopyComplete
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\obj\Debug\CShap-MVC-VuDoan.dll
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\obj\Debug\CShap-MVC-VuDoan.pdb
+D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\obj\Debug\CShap-MVC-VuDoan.csprojAssemblyReference.cache

@@ -226,7 +226,7 @@ namespace CShap_MVC_VuDoan.DAO
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID_INPUT", id);
-                cmd.Parameters.AddWithValue("@Query", SELECT_DATA);
+                cmd.Parameters.AddWithValue("@QUERY", SELECT_DATA);
                 da.SelectCommand = cmd;
                 da.Fill(ds);
                 string t = ds.Tables[0].Rows[0][0].ToString();
