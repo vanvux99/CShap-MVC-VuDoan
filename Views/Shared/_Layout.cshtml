@@ -6,37 +6,117 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <style>
+        div.container {
+            width: 100%;
+            height: auto;
+        }
+
+        nav {
+            float: left;
+            max-width: 160px;
+            margin: 0;
+            padding: 1em;
+        }
+
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+                nav ul a {
+                    text-decoration: none;
+                }
+
+        .btn-1 {
+            width: 215px;
+            height: 45px;
+        }
+
+        #logo {
+            width: 100px;
+        }
+
+
+
+        .khung {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .left {
+            width: 19%;
+            height: 100vh;
+            float: left;
+        }
+
+        .right {
+            width: 80%;
+            height: 100vh;
+            float: right;
+        }
+
+        .bottom {
+        }
+    </style>
+    <script>
+        function listClick() {
+            window.location = "https://localhost:44349/Blogs/List";
+        }
+
+        function newClick() {
+            window.location = "https://localhost:44349/Blogs/New";
+        }
+
+        function searchClick() {
+            window.location = "https://localhost:44349/Blogs/Search";
+        }
+
+        function editClick() {
+            window.location = "https://localhost:44349/Blogs/Edit/1";
+        }
+    </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <div class="khung">
+        <div class="left">
+
+            <nav>
+                <ul>
+                    <li>
+                        <img src="https://digidinos.com/assets/images/logo.png" alt="Best Outsourcing Company In Vietnam - Digi Dinos" id="logo" />
+                    </li>
                 </ul>
+                <ul>
+                    <li>
+                        <input type="button" value="List" class="btn-1" onclick="listClick()" />
+                    </li>
+                    <li>
+                        <input type="button" value="New" class="btn-1" onclick="newClick()" />
+                    </li>
+                    <li>
+                        <input type="button" value="Search" class="btn-1" onclick="searchClick()" />
+                    </li>
+                    <li>
+                        <input type="button" value="Edit" class="btn-1" onclick="editClick()" />
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="right">
+            <div>
+                <h1>Blogs Management</h1>
+            </div>
+            <div>
+                @RenderBody()
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    
 </body>
 </html>

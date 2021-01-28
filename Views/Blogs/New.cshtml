@@ -2,71 +2,164 @@
 @{
     ViewBag.Title = "New";
 }
+
+
+
 @using (Html.BeginForm())
 {
-<div class="form-horizontal">
-    <div class="form-group">
-        @Html.LabelFor(model => model.TITLE, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.TITLE, new { htmlAttributes = new { @class = "form-control" } })
+    <h2>New Blogs</h2>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div>
+                <label for="title" id="lbl-top">Tiêu đề</label>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="title" id="lbl-top">Mô tả ngắn</label>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DescriptionShort, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })
+                @Html.ValidationMessageFor(model => model.DescriptionShort, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="title" id="lbl-top">Chi tiết</label>
+            </div>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Detail, new
+               {
+                   htmlAttributes = new
+                   {
+                       @id = "txt-area",
+                       @class = "form-control",
+                       @cols = "50",
+                       @rows = "10",
+                       @minlength = "5",
+                       @required = "true"
+                   }
+               })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="title" id="lbl-top">Hình ảnh</label>
+            </div>
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })*@
+                @Html.
+                <input type="file" class="form-control-file" id="txt-right">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="title" id="lbl-top">Loại</label>
+            </div>
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })*@
+                <select class="form-control" id="txt-right">
+                    <option value="">Thời sự</option>
+                    <option>Thế giới</option>
+                    <option>Kinh doanh</option>
+                    <option>Giải trí</option>
+                    <option>Thể thao</option>
+                    <option>Pháp luật</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="title" id="lbl-top">Vị trí</label>
+            </div>
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Locations, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })*@
+                <div id="txt-right">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> Việt Nam </label>
+                </div>
+                <div id="txt-right">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> Châu Á </label>
+                </div>
+                <div id="txt-right">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> Châu Âu </label>
+                </div>
+                <div id="txt-right">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> Châu Mĩ </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label for="title" id="lbl-top">Trạng thái</label>
+            </div>
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Publics, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })*@
+                <div id="txt-right">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                    <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                    </label>
+                </div>
+                <div id="txt-right">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                    <label class="form-check-label" for="exampleRadios1">
+                        No
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.DATE_PUBLIC, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DATE_PUBLIC, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<button type="button" class="btn btn-success" onclick="news()">Tạo mới</button>*@
+                @Html.ActionLink("Tạo mới", "New", new { htmlAttributes = new { @class = "btn btn-success" } })
+                <button type="button" class="btn btn-primary" onclick="clear()">Clear</button>
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DESCRIPTION_SHORT, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DESCRIPTION_SHORT, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DETAIL, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DETAIL, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IMAGE, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.IMAGE, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.CATEGORY, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CATEGORY, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.LOCATIONS, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.LOCATIONS, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.PUBLICS, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.PUBLICS, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>
-
-    @*<div class="form-group">
-        @Html.LabelFor(model => model.DATE_PUBLIC, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DATE_PUBLIC, new { htmlAttributes = new { @class = "form-control" } })
-        </div>
-    </div>*@
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Submit" class="btn btn-default" />
-            <input type="button" value="Clean" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
+
+
+<script type="text/javascript">
+    var openfile = function (event) {
+        var input = event.target;
+        var reader = new FileReader();
+        reader.onload = function () {
+            var dataurk = reader.result;
+            $("#img").attr('src', dataurk);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+
+    function clear() {
+        alert("ád");
+        document.getElementById("txt-right").clear();
+        document.getElementById("txt-area").clear();
+    }
+
+    function news() {
+
+    }
+</script>

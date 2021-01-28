@@ -1,7 +1,86 @@
-﻿
+﻿@model CShap_MVC_VuDoan.Models.Blogs
 @{
     ViewBag.Title = "Search";
 }
 
-<h2>Search</h2>
 
+@using (Html.BeginForm("Search"))
+{
+    <h2>Search Blogs</h2>
+    <div class="form-horizontal">
+        <div>
+            <div>
+                <label for="a"> Tiêu đề </label>
+                <input type="text" name="searchBlog" id="text" placeholder="Tiêu đề ..." />
+            </div>
+            
+            <div>
+                <button type="button" class="btn btn-success" id="btn btn-success" onclick="searchClick()">Search</button>
+            </div>
+        </div>
+
+        <table class="table" border="1">
+            <tr>
+                <th>
+                    @Html.DisplayFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Publics)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Locations)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatePublic)
+                </th>
+            </tr>
+
+            @foreach (var item in Model.ShowAllBlogs)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Publics)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Locations)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DatePublic)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+
+<style>
+    #text {
+        width: 300px;
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+    }
+    #btn btn-success {
+        margin-bottom: 40px;
+    }
+</style>
+<script>
+    function searchClick() {
+
+    }
+</script>

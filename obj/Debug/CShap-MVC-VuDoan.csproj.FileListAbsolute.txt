@@ -72,7 +72,6 @@ D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\bin\Newtonsoft.Json.xml
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\bin\Antlr3.Runtime.pdb
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\obj\Debug\CShap-MVC-VuDoan.csprojAssemblyReference.cache
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\obj\Debug\CShap-MVC-VuDoan.csproj.CoreCompileInputs.cache
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\obj\Debug\CShap-MVC-VuDoan.csproj.CopyComplete
 D:\Project_C#\DIGI DINOS\ASP.NET C#\CShap-MVC-VuDoan\CShap-MVC-VuDoan\CShap-MVC-VuDoan\obj\Debug\CShap-MVC-VuDoan.dll

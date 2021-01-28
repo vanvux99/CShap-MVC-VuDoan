@@ -5,74 +5,153 @@
 
 @using (Html.BeginForm())
 {
+    <h2>Edit Blogs</h2>
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Thay đổi thông tin</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TITLE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <label for="title" id="lbl-top">Tiêu đề</label>
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TITLE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TITLE, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DESCRIPTION_SHORT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <label for="title" id="lbl-top">Mô tả ngắn</label>
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DESCRIPTION_SHORT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DESCRIPTION_SHORT, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.DescriptionShort, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })
+                @Html.ValidationMessageFor(model => model.DescriptionShort, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DETAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <label for="title" id="lbl-top">Chi tiết</label>
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DETAIL, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DETAIL, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.Detail, new
+               {
+                   htmlAttributes = new
+                   {
+                       @id = "txt-area",
+                       @class = "form-control",
+                       @cols = "50",
+                       @rows = "10",
+                       @minlength = "5",
+                       @required = "true"
+                   }
+               })
+
+                @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IMAGE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <label for="title" id="lbl-top">Hình ảnh</label>
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IMAGE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IMAGE, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })*@
+                <input type="file" class="form-control-file" id="txt-right">
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CATEGORY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <label for="title" id="lbl-top">Loại</label>
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CATEGORY, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CATEGORY, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })*@
+                <select class="form-control" id="txt-right">
+                    <option value="">Thời sự</option>
+                    <option>Thế giới</option>
+                    <option>Kinh doanh</option>
+                    <option>Giải trí</option>
+                    <option>Thể thao</option>
+                    <option>Pháp luật</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.LOCATIONS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <label for="title" id="lbl-top">Vị trí</label>
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.LOCATIONS, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LOCATIONS, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.Locations, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })*@
+                <div id="txt-right">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> Việt Nam </label>
+                </div>
+                <div id="txt-right">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> Châu Á </label>
+                </div>
+                <div id="txt-right">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> Châu Âu </label>
+                </div>
+                <div id="txt-right">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1"> Châu Mĩ </label>
+                </div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PUBLICS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div>
+                <label for="title" id="lbl-top">Trạng thái</label>
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PUBLICS, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PUBLICS, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.Publics, new { htmlAttributes = new { @class = "form-control", @id = "txt-right" } })*@
+                <div id="txt-right">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                    <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                    </label>
+                </div>
+                <div id="txt-right">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                    <label class="form-check-label" for="exampleRadios1">
+                        No
+                    </label>
+                </div>
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cập nhật" class="btn btn-default" />
+            <div class="col-1">
+                <button type="button" class="btn btn-success">Cập nhật</button>
+                <button type="button" class="btn btn-primary">Clear</button>
             </div>
         </div>
     </div>
 }
+
+<style>
+    #lbl-top {
+        margin-left: 50px;
+    }
+
+    #txt-right {
+        margin-left: 15px;
+        width: 600px;
+    }
+
+    #txt-area {
+        margin-left: 16px;
+        width: 539px;
+        height: 200px;
+    }
+</style>

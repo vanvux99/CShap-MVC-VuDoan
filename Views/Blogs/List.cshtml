@@ -5,66 +5,68 @@
 
 @using (Html.BeginForm())
 {
-    <table class="table">
+    <h2>List Blogs</h2>
+    <table class="table" border="1">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID)
+                ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TITLE)
+                @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CATEGORY)
+                @Html.DisplayNameFor(model => model.Category)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PUBLICS)
+                @Html.DisplayNameFor(model => model.Publics)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LOCATIONS)
+                @Html.DisplayNameFor(model => model.Locations)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DATE_PUBLIC)
+                @Html.DisplayNameFor(model => model.DatePublic)
             </th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
 
         @foreach (var item in Model.ShowAllBlogs)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ID)
+                        @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.TITLE)
+                        @Html.DisplayFor(modelItem => item.Title)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CATEGORY)
+                        @Html.DisplayFor(modelItem => item.Category)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PUBLICS)
+                        @Html.DisplayFor(modelItem => item.Publics)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.LOCATIONS)
+                        @Html.DisplayFor(modelItem => item.Locations)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DATE_PUBLIC)
+                        @Html.DisplayFor(modelItem => item.DatePublic)
                     </td>
                     
                     <td>
-                        @*delete*@
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                        @*<input id="Submit1" onclick="return confirm('Are You Sure To Remove ?')"
+                               type="submit" value="Remove" style="color:Navy;font-family:Arial; font-size:large" />*@
+                    </td>
+                    <td>
+
+                        @*@Html.ActionLink("Delete", "Delete", new { @id = item.Id, htmlAttributes = new { @class = "btn btn-danger" } })*@
+                        <button type="button" class="btn btn-danger" href ="#">Delete</button>
                     </td>
                 </tr>
             }
 
     </table>
-    <p>
-        @Html.ActionLink("Edit", "Edit")
-    </p>
-    <p>
-        @Html.ActionLink("New", "New")
-    </p>
-    <p>
-        @Html.ActionLink("Search", "Search")
-    </p>
 }
 
+<script>
+</script>
